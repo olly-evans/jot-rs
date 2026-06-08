@@ -1,3 +1,19 @@
+extern crate ncurses;
+
+use ncurses::*;
+
 fn main() {
-    println!("Hello, world!");
+    initscr();
+    raw();
+    noecho();
+
+    addstr("Hello, world!").unwrap();
+    refresh();
+
+    // Infinite loop
+    getch();
+
+    endwin();
 }
+
+
